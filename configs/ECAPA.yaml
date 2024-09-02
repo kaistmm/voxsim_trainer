@@ -1,0 +1,12 @@
+model: ecapa_tdnn
+update_extract: False
+n_mels: 80
+emb_dim: 256
+max_frames: 300
+batch_size: 32
+eval_frames: 400
+scheduler: steplr
+lr: 1e-05
+lr_decay: 0.95
+max_label: 6
+save_path: exps/WavLM_ECAPA

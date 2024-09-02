@@ -1,0 +1,10 @@
+torch>=1.7.0
+torchaudio>=0.7.0
+numpy
+scipy
+scikit-learn
+tqdm
+pyyaml
+soundfile
+librosa
+s3prl
