@@ -8,3 +8,5 @@ pyyaml
 soundfile
 librosa
 s3prl
+tensorboard
+matplotlib

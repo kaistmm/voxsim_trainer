@@ -211,3 +211,6 @@ pyrightconfig.json
 
 
 ckpt
+exps
+data/voxceleb1
+data/voxceleb2

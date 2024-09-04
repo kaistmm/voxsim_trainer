@@ -28,6 +28,8 @@ MODEL_LIST = ['ecapa_tdnn', 'ecapa_tdnn_sv', 'hubert_large_ll60k', 'xls_r_300m',
 
 parser = argparse.ArgumentParser(description = "SpeakerNet")
 
+parser.add_argument('--config',         type=str,   default=None,   help='Config YAML file')
+
 ## Data loader
 parser.add_argument('--max_frames',     type=int,   default=300,    help='Input length to the network for training')
 parser.add_argument('--eval_frames',    type=int,   default=400,    help='Input length to the network for testing 0 uses the whole files')
@@ -87,6 +89,24 @@ parser.add_argument('--distributed',    dest='distributed', action='store_true',
 parser.add_argument('--mixedprec',      dest='mixedprec',   action='store_true', help='Enable mixed precision training')
 
 args = parser.parse_args()
+
+## Parse YAML
+def find_option_type(key, parser):
+    for opt in parser._get_optional_actions():
+        if ('--' + key) in opt.option_strings:
+           return opt.type
+    raise ValueError
+
+if args.config is not None:
+    with open(args.config, "r") as f:
+        yml_config = yaml.load(f, Loader=yaml.FullLoader)
+    for k, v in yml_config.items():
+        if k in args.__dict__:
+            typ = find_option_type(k, parser)
+            args.__dict__[k] = typ(v)
+        else:
+            sys.stderr.write("Ignored unknown parameter {} in yaml.\n".format(k))
+
 
 ## ===== ===== ===== ===== ===== ===== ===== =====
 ## Trainer script

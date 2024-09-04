@@ -13,10 +13,6 @@ urls = {
     'wavlm_large': "https://huggingface.co/s3prl/converted_ckpts/resolve/main/wavlm_large.pt",
 }
 
-local = {
-    'wavlm_large': "./ckpt/wavlm_large.pt",
-}
-
 
 ''' Res2Conv1d + BatchNorm1d + ReLU
 '''
@@ -175,7 +171,7 @@ class SSL_ECAPA_TDNN(nn.Module):
     def __init__(self, feat_dim=80, channels=512, emb_dim=192, global_context_att=False,
                  feat_type='fbank', sr=16000, feature_selection="hidden_states", update_extract=False, initial_model="", **kwargs):
         super().__init__()
-
+        import pdb; pdb.set_trace()
         self.feat_type = feat_type
         self.feature_selection = feature_selection
         self.update_extract = update_extract
@@ -203,13 +199,7 @@ class SSL_ECAPA_TDNN(nn.Module):
             self.feature_extract = trans.MFCC(sample_rate=sr, n_mfcc=feat_dim, log_mels=False,
                                               melkwargs=melkwargs)
         else:
-            if feat_type in local:
-                self.feature_extract = torch.hub.load('s3prl/s3prl', feat_type, pretrained=False)
-                if initial_model == "":
-                    self.feature_extract.model.load_state_dict(torch.load(local[feat_type])['model'])
-                    print('Self-supervised {} is loaded!'.format(feat_type))
-            else:
-                self.feature_extract = torch.hub.load('s3prl/s3prl', feat_type, urls[feat_type])
+            self.feature_extract = torch.hub.load('s3prl/s3prl', feat_type)
             
             if len(self.feature_extract.model.encoder.layers) == 24 and hasattr(self.feature_extract.model.encoder.layers[23].self_attn, "fp32_attention"):
                 self.feature_extract.model.encoder.layers[23].self_attn.fp32_attention = False
