@@ -171,7 +171,7 @@ class SSL_ECAPA_TDNN(nn.Module):
     def __init__(self, feat_dim=80, channels=512, emb_dim=192, global_context_att=False,
                  feat_type='fbank', sr=16000, feature_selection="hidden_states", update_extract=False, initial_model="", **kwargs):
         super().__init__()
-        import pdb; pdb.set_trace()
+        
         self.feat_type = feat_type
         self.feature_selection = feature_selection
         self.update_extract = update_extract

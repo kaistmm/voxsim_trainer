@@ -331,7 +331,7 @@ def main():
     args.feat_save_path      = ""
 
     if os.path.exists(args.save_path):
-        answer = input('Current dir exists, do you want to remove and refresh it?\n')
+        answer = input('Current dir exists, do you want to remove and refresh it? (y or n) \n')
         if answer in ['yes','y','ok','1']:
             print('Dir removed !')
             shutil.rmtree(args.save_path)
