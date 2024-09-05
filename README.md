@@ -9,7 +9,7 @@ pip install -r requirements.txt
 
 ### Data preparation
 
-Follow the [voxceleb_trainer](https://github.com/clovaai/voxceleb_trainer) github repo to prepare VoxCeleb dataset.
+Please follow the 'Data preparation' part of the [voxceleb_trainer](https://github.com/clovaai/voxceleb_trainer) github repo to prepare VoxCeleb datasets.
 
 ### Training examples
 
