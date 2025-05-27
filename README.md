@@ -2,7 +2,7 @@
 
 This repository contains the framework for training speaker similarity prediction models described in the paper '_VoxSim: A perceptual voice similarity dataset_'.
 
-Demo for UTMOS is available: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/junseok520/VoxSIM)
+Demo for SPKSIM is available: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/junseok520/VoxSIM)
 
 ## Quick Prediction
 You can simply use a pretrained WAVLM_ECAPA strong learner trained on the VoxSim dataset. We support both single and batch processings.
