@@ -68,7 +68,9 @@ python ./trainSpeakerNet.py --eval --model wavlm_large --save_path test/wavlm_ec
 We would like to thank the contributors to the following repositories:
 
 [voxceleb_trainer](https://github.com/clovaai/voxceleb_trainer)
+
 [s3prl](https://github.com/s3prl/s3prl)
+
 [UTMOS](https://github.com/sarulab-speech/UTMOS22)
 
 ### Citation
