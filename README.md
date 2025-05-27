@@ -2,6 +2,28 @@
 
 This repository contains the framework for training speaker similarity prediction models described in the paper '_VoxSim: A perceptual voice similarity dataset_'.
 
+Demo for UTMOS is available: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/junseok520/VoxSIM)
+
+## Quick Prediction
+You can simply use a pretrained WAVLM_ECAPA strong learner trained on the VoxSim dataset. We support both single and batch processings.
+
+Git clone the Hugging Face repo:
+```
+git clone git clone https://huggingface.co/spaces/junseok520/VoxSIM
+cd VoxSIM
+pip install -r requirements.txt
+```
+
+To predict the speaker similarity of two wav files:
+```
+python predict.py --mode predict_file --inp_path /path/to/wav/file.wav --ref_path /path/to/ref/file.wav --out_path /path/to/txt/file.txt
+```
+
+To predict the speaker similarities of all .wav files in two folders:
+```
+python predict.py --mode predict_dir --inp_dir /path/to/wav/dir/ --ref_dir /path/to/ref/dir/ --out_path /path/to/txt/file.txt
+```
+
 ### Dependencies
 ```
 pip install -r requirements.txt
