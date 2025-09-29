@@ -9,7 +9,7 @@ You can simply use a pretrained WAVLM_ECAPA strong learner trained on the VoxSim
 
 Git clone the Hugging Face repo:
 ```
-git clone git clone https://huggingface.co/spaces/junseok520/VoxSIM
+git clone https://huggingface.co/spaces/junseok520/VoxSIM
 cd VoxSIM
 pip install -r requirements.txt
 ```
